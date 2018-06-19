@@ -6,10 +6,10 @@
   "author": "Help Me",
   "browser_action": {
     "default_icon": "scaredjin.png",
-    "default_title": "Help"
+    "default_title": "Help",
+    "default_popup": "content.html"
   },
   "chrome_url_overrides": {
-    "newtab": "content.html"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs"]
 }
