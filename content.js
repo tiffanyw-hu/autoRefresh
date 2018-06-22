@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!minutes) { minutes = 1 }
     if (!seconds) { seconds = 1 }
     let interval = minutes * 1000 * 60 + seconds * 1000
-    chrome.tabs.reload()
-    }
-  })
+    chrome.tabs.query({active: false, currentWindow: true}, function(tabsArray) {
+      chrome.tabs.executeScript(tabsArray[0].id, {code: chrome.tabs.reload(tabsArray[0].id)});
+    });
+  }
+})
 
   //check the input of the minute and seconds
   //setInterval(or the equivalent of whatever it is in tabs) is calculated
