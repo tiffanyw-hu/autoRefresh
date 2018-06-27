@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!seconds) { seconds = 1 }
     let interval = minutes * 1000 * 60 + seconds * 1000
     chrome.tabs.query({active: false, currentWindow: true}, function(tabsArray) {
+      console.log(tabsArray)
       chrome.tabs.executeScript(tabsArray[0].id, {code: chrome.tabs.reload(tabsArray[0].id)});
     });
   }
@@ -17,11 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
   //if none, then assume it is 1 minute
 
 
-//TDD: have it reload once
 //TDD: have it setInterval reload
+//TDD: have it setInterval reload repeatedly until told to stop
 //TDD: have it setInterval reload after audio is done playing
 //TDD: have it setInterval reload after audio is done playing and checking if it's ibighit
-//extra: have it only reload BTS
 
   // chrome.tabs.update(tabs.id, {url: "http://www.google.com"});
 //class="yt-simple-endpoint style-scope yt-formatted-string" what even is this
