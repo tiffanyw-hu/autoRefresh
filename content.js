@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!seconds) { seconds = 1 }
     let interval = minutes * 1000 * 60 + seconds * 1000
     chrome.tabs.query({active: false, currentWindow: true}, function(tabsArray) {
-      console.log(tabsArray)
       chrome.tabs.executeScript(tabsArray[0].id, {code: chrome.tabs.reload(tabsArray[0].id)});
     });
   }
 })
+
+//https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Timeouts_in_inactive_tabs_clamped_to_%3E1000ms
 
   //check the input of the minute and seconds
   //setInterval(or the equivalent of whatever it is in tabs) is calculated
